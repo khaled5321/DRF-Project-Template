@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     # Third party apps
     "rest_framework",
     "rest_framework.authtoken",
+    "dj_rest_auth",
     "corsheaders",
     "drf_spectacular",
     # My apps
@@ -125,6 +126,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 # Rest settings
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
     ],
@@ -133,6 +135,7 @@ REST_FRAMEWORK = {
 
 SPECTACULAR_SETTINGS = {
     "TITLE": "API DOCUMENTATION",
+    "SCHEMA_PATH_PREFIX": r"/api/v[0-9]",
 }
 
 # Email settings
