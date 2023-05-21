@@ -62,5 +62,5 @@ A template for launching new Django Rest Framework projects quickly.
     )
     ```
 
-    The view should direct the user to the frontend to inform him that his email was verified
+    The view should direct the user to the frontend to inform him that his email was verified  
     Send a post request with the key to ```/api/v1/registration/verify-email/``` to verify the email
