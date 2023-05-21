@@ -3,11 +3,8 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
+    username = models.CharField(max_length=50, unique=True, null=False, blank=False)
     email = models.EmailField(unique=True, null=False, blank=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["username"]
 
     def __str__(self):
-        return self.email
+        return self.username
