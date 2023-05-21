@@ -14,14 +14,53 @@ A template for launching new Django Rest Framework projects quickly.
 
 ## Setup
 
-1. clone repo
+1. Clone repo  
+    ```shell
+    git clone https://github.com/khaled5321/DRF-Project-Template.git
+    ```
 
-2. create virtual environment
+2. Create virtual environment
+    ```shell
+    python -m venv venv
+    ```
 
-3. install requirements
+3. Install requirements
+    ```shell
+    pip install -r requirements.txt
+    ```
 
-4. make migrations & migrate
+4. Make migrations & migrate
+    ```shell
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
 
-5. Password reset view
+5. Provide password reset view
 
-6. Verify Email view
+    Uncomment the url path in urls.py and provide a custom view.  
+
+    ```python 
+    path(
+    "auth/password/reset/confirm/<uidb64>/<token>/",
+    custom view,
+    name="password_reset_confirm", # keep tha name
+    )
+    ```
+    
+    The view direct the user to the frontend to enter the new password.  
+    Send a post request with the new password, uid and token to ```/api/v1/auth/password/reset/confirm/``` to confirm the password reset.
+
+6. Provide verify Email view
+
+    Uncomment the url path in urls.py and provide a custom view. 
+
+    ```python 
+    path(
+    "api/v1/registration/account-confirm-email/<key>/",
+    custom view,
+    name="account_confirm_email" # keep the name
+    )
+    ```
+
+    The view should direct the user to the frontend to inform him that his email was verified
+    Send a post request with the key to ```/api/v1/registration/verify-email/``` to verify the email
